@@ -92,7 +92,7 @@ resource "aws_iam_policy" "secretsPolicy" {
 
 resource "aws_db_instance" "postgresdb" {
   allocated_storage       = 10
-  identifier              = "avalanches_postgres"
+  identifier              = "avalanchespostgres"
   db_name                 = "avalanches_database"
   engine                  = "postgres"
   engine_version          = "15"
