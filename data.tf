@@ -15,7 +15,7 @@ data "aws_secretsmanager_secret" "redis_host" {
 }
 
 data "aws_secretsmanager_secret" "redis_port" {
-  name =  "6379"
+  name = "6379"
 }
 
 data "aws_secretsmanager_secret" "redis_password" {
