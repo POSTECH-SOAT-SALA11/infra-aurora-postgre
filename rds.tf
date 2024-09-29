@@ -72,9 +72,9 @@ resource "aws_secretsmanager_secret_version" "db_credentials_version" {
     host           = aws_db_instance.postgresdb.address
     port           = aws_db_instance.postgresdb.port
     db             = aws_db_instance.postgresdb.db_name
-    redis_host     = data.aws_secretsmanager_secret.redis_host.name
-    redis_port     = data.aws_secretsmanager_secret.redis_port.name
-    redis_password = data.aws_secretsmanager_secret.redis_password.name
+    redis_host     = "my-redis-replication-group-001.axvta7.0001.sae1.cache.amazonaws.com"
+    redis_port     = "6379"
+    redis_password = ""
     typeorm        = "postgres://${random_string.username.result}:${random_string.password.result}@${aws_db_instance.postgresdb.address}:${aws_db_instance.postgresdb.port}/${aws_db_instance.postgresdb.db_name}"
   })
 }

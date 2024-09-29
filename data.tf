@@ -9,15 +9,3 @@ data "aws_subnet" "subnet1" {
 data "aws_subnet" "subnet2" {
   id = "subnet-003d6328b6b8d9084"
 }
-
-data "aws_secretsmanager_secret" "redis_host" {
-  name = "my-redis-replication-group-001.axvta7.0001.sae1.cache.amazonaws.com"
-}
-
-data "aws_secretsmanager_secret" "redis_port" {
-  name = "6379"
-}
-
-data "aws_secretsmanager_secret" "redis_password" {
-  name = ""
-}
