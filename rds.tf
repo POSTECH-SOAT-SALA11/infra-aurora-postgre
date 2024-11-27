@@ -60,22 +60,18 @@ output "secrets_id" {
 }
 
 resource "aws_secretsmanager_secret" "db_credentials" {
-  name                    = "dbcredentialsv2"
+  name                    = "rdscredentials"
   recovery_window_in_days = 0
 }
 
 resource "aws_secretsmanager_secret_version" "db_credentials_version" {
   secret_id = aws_secretsmanager_secret.db_credentials.id
   secret_string = jsonencode({
-    username       = random_string.username.result
-    password       = random_string.password.result
-    host           = aws_db_instance.postgresdb.address
-    port           = aws_db_instance.postgresdb.port
-    db             = aws_db_instance.postgresdb.db_name
-    redis_host     = "my-redis-replication-group-001.p6lc45.0001.sae1.cache.amazonaws.com"
-    redis_port     = "6379"
-    redis_password = ""
-    typeorm        = "postgres://${random_string.username.result}:${random_string.password.result}@${aws_db_instance.postgresdb.address}:${aws_db_instance.postgresdb.port}/${aws_db_instance.postgresdb.db_name}"
+    username = random_string.username.result
+    password = random_string.password.result
+    host     = aws_db_instance.postgresdb.address
+    port     = aws_db_instance.postgresdb.port
+    db       = aws_db_instance.postgresdb.db_name
   })
 }
 
